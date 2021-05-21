@@ -8,5 +8,8 @@ module.exports = {
         args[0].title = 'Time Since The Boys Played Phasmophobia'
         return args
       })
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/phasmophobia/'
+  : '/'
 }
