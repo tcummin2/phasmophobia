@@ -10,7 +10,7 @@
 import CountUp from './components/CountUp'
 import BottomBar from './components/BottomBar'
 import AnimatedBackground from './components/AnimatedBackground'
-const LAST_PLAYED_TIME = 1607833438
+const LAST_PLAYED_TIME = 1639281518
 
 export default {
   name: 'App',
