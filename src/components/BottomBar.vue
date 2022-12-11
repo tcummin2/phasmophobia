@@ -4,20 +4,15 @@
   </v-bottom-navigation>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
 import moment from 'moment'
 
-export default {
-  name: 'BottomBar',
-  props: {
-    date: Date
-  },
-  computed: {
-    momentDate() {
-      return moment(this.date).toString()
-    }
-  }
-}
+const props = defineProps({
+  date: Date
+})
+
+const momentDate = computed(() => moment(props.date).toString())
 </script>
 
 <style lang="scss" scoped>

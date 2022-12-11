@@ -2,12 +2,6 @@
   <div></div>
 </template>
 
-<script>
-export default {
-  name: 'AnimatedBackground'
-}
-</script>
-
 <style lang="scss" scoped>
 $bg-url: '../assets/me-and-the-boys.png';
 $bg-height: 349px;

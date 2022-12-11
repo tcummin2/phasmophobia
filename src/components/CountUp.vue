@@ -21,48 +21,42 @@
   </v-container>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import moment from 'moment'
 
-export default {
-  name: 'CountUp',
-  props: {
-    date: Date
-  },
-  data: () => ({
-    interval: null,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  }),
-  computed: {
-    counter() {
-      return {
-        days: this.days,
-        hours: this.hours,
-        minutes: this.minutes,
-        seconds: this.seconds
-      }
-    }
-  },
-  mounted() {
-    this.interval = setInterval(this.updateTime, 1000)
+const props = defineProps({
+  date: Date
+})
 
-    this.updateTime()
-  },
-  beforeDestroy() {
-    clearInterval(this.interval)
-  },
-  methods: {
-    updateTime() {
-      const diff = moment.duration(moment() - moment(this.date))
+const interval = ref(null)
+const days = ref(0)
+const hours = ref(0)
+const minutes = ref(0)
+const seconds = ref(0)
 
-      this.days = Math.floor(diff.asDays())
-      this.hours = diff.hours()
-      this.minutes = diff.minutes()
-      this.seconds = diff.seconds()
-    }
-  }
+const counter = computed(() => ({
+  days: days.value,
+  hours: hours.value,
+  minutes: minutes.value,
+  seconds: seconds.value
+}))
+
+onMounted(() => {
+  interval.value = setInterval(updateTime, 1000)
+
+  updateTime()
+})
+onBeforeUnmount(() => {
+  clearInterval(interval)
+})
+
+function updateTime() {
+  const diff = moment.duration(moment() - moment(props.date))
+
+  days.value = Math.floor(diff.asDays())
+  hours.value = diff.hours()
+  minutes.value = diff.minutes()
+  seconds.value = diff.seconds()
 }
 </script>

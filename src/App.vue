@@ -6,23 +6,14 @@
   </v-app>
 </template>
 
-<script>
-import CountUp from './components/CountUp'
-import BottomBar from './components/BottomBar'
-import AnimatedBackground from './components/AnimatedBackground'
+<script setup>
+import CountUp from './components/CountUp.vue'
+import BottomBar from './components/BottomBar.vue'
+import AnimatedBackground from './components/AnimatedBackground.vue'
+
 const LAST_PLAYED_TIME = 1639281518
 
-export default {
-  name: 'App',
-  components: {
-    CountUp,
-    BottomBar,
-    AnimatedBackground
-  },
-  data: () => ({
-    date: new Date(LAST_PLAYED_TIME * 1000)
-  })
-}
+const date = new Date(LAST_PLAYED_TIME * 1000)
 </script>
 
 <style lang="scss">
