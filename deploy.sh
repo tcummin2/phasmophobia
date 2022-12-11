@@ -2,7 +2,7 @@
 
 set -e
 
-yarn build --base=/phasmophobia/
+yarn build
 
 cd dist
 
