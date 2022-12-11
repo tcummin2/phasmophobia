@@ -11,7 +11,7 @@ import CountUp from './components/CountUp.vue'
 import BottomBar from './components/BottomBar.vue'
 import AnimatedBackground from './components/AnimatedBackground.vue'
 
-const LAST_PLAYED_TIME = 1639281518
+const LAST_PLAYED_TIME = 1670737048
 
 const date = new Date(LAST_PLAYED_TIME * 1000)
 </script>
